@@ -26,6 +26,7 @@ lxc exec s-$USERNAME -- sh -c "rm -f /root/.ssh/id_rsa* && ssh-keygen -b 2048 -t
 lxc exec s-$USERNAME -- sh -c "cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_keys"
 lxc exec s-$USERNAME -- sh -c "echo 'TZ='Asia/Shanghai'; export TZ' >> /root/.profile"
 lxc file pull s-$USERNAME/root/.ssh/id_rsa /root/manager/keys/$USERNAME.private.key
+sleep 5
 
 # allocate ssh port
 printf "Allocating ssh port: "
